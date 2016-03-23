@@ -35,7 +35,9 @@ class RobotWorldApp < Sinatra::Base
 
   put '/robots/:name' do |name|
     robot_world.update(name, params[:robot])
-    redirect "/robots/#{name}"
+    @robot = robot_world.find(params["robot"]["name"])
+    erb :show
+    # redirect "/robots/#{name}"
   end
 
   delete '/robots/:name' do |name|

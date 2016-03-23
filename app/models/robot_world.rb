@@ -10,8 +10,14 @@ class RobotWorld
 
   def create(robot)
     database.transaction do
-      database['robots'] ||= []
-      database['robots'] << { "name" => task[:name], "city" => task[:city], "state" => task[:state], "avatar" => task[:avatar], "birthdate" => task[:birthdate], "date hired" => task[:date_hired], "department" => task[:department] }
+      database['robots'] ||=[]
+      database['robots'] << { "name" => robot[:name],
+                              "city" => robot[:city],
+                              "state" => robot[:state],
+                              "avatar" => robot[:avatar],
+                              "birthdate" => robot[:birthdate],
+                              "date hired" => robot[:date_hired],
+                              "department" => robot[:department] }
     end
   end
 
@@ -26,7 +32,7 @@ class RobotWorld
   end
 
   def raw_robot(name)
-   raw_robots.find { |task| robot["name"] == name }
+   raw_robots.find { |robot| robot["name"] == name }
  end
 
  def find(name)
@@ -48,7 +54,7 @@ class RobotWorld
 
   def delete(name)
     database.transaction do
-      database['robots'].delete_if { |task| robot["name"] == name }
+      database['robots'].delete_if { |robot| robot["name"] == name }
     end
   end
 
