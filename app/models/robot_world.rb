@@ -10,7 +10,7 @@ class RobotWorld
 
   def create(robot)
     database.transaction do
-      database['robots'] ||=[]
+      database['robots'] ||= []
       database['robots'] << { "name" => robot[:name],
                               "city" => robot[:city],
                               "state" => robot[:state],

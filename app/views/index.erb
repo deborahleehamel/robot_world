@@ -1,5 +1,8 @@
-<h1>All Robots</h1>
+<div class="row well text-center">
+  <h1>Robot Directory</h1>
+</div>
 
+<div class="text-center padded centered">
 
 <% @robots.each do |robot| %>
   <h3>(<%= robot.name %>) <a href="/robots/<%= robot.name %>"><%= robot.name %></a></h3>
@@ -9,3 +12,5 @@
     <input type="submit" value="delete"/>
   </form>
 <% end %>
+
+</div>

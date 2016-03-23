@@ -1,20 +1,13 @@
 ---
 robots:
-- name: Kaitlin Hitler
-  city: Littleton
-  state: Utah
-  avatar: https://robohash.org/eumnesciuntut.png?size=300x300&set=set1
-  birthdate: 
-  date hired: '2015-09-26'
-  department: LLC
-- name: Allan Proper
+- name: Woody Allen
   city: Freedom
   state: Nebraska
   avatar: https://robohash.org/dignissimosinculpa.png?size=300x300&set=set1
   birthdate: 
   date hired: '2015-04-01'
   department: and Sons
-- name: Braxton Goofy
+- name: Braxton Juggles
   city: Loweview
   state: Mississippi
   avatar: https://robohash.org/quisvoluptatespossimus.png?size=300x300&set=set1
@@ -728,3 +721,10 @@ robots:
   birthdate: ''
   date hired: ''
   department: ''
+- name: Sam Tinman
+  city: Detroit
+  state: MI
+  avatar: '747'
+  birthdate: 09/08/2000
+  date hired: 09/12/2010
+  department: Hiccup Engineering
