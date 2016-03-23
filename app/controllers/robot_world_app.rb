@@ -4,6 +4,8 @@ class RobotWorldApp < Sinatra::Base
   set :root, File.expand_path("..", __dir__)
   # allow us to override original form methods
   set :method_override, true
+  # use webrick instead of shotgun for debugging, requires restarts
+  # set :server, 'webrick'
 
   get '/' do
     erb :dashboard
