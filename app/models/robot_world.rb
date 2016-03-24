@@ -1,5 +1,4 @@
 require 'yaml/store'
-require_relative 'robot'
 
 class RobotWorld
   attr_reader :database
@@ -46,7 +45,7 @@ class RobotWorld
       target["city"] = robot[:city]
       target["state"] = robot[:state]
       target["avatar"] = robot[:avatar]
-      target["birthdate"] = robot[:birtdate]
+      target["birthdate"] = robot[:birthdate]
       target["date hired"] = robot[:date_hired]
       target["department"] = robot[:department]
     end
@@ -57,5 +56,11 @@ class RobotWorld
       database['robots'].delete_if { |robot| robot["name"] == name }
     end
   end
+  def delete_all
+    database.transaction do
+      database['robots'] = []
+    end
+  end
+
 
 end

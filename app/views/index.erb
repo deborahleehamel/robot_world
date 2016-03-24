@@ -2,10 +2,11 @@
   <h1>Robot Directory</h1>
 </div>
 
-<div class="text-center padded centered">
+<div id="robots" class="text-center padded centered">
 
 <% @robots.each do |robot| %>
   <h3>(<%= robot.name %>) <a href="/robots/<%= robot.name %>"><%= robot.name %></a></h3>
+<img src="https://robohash.org/<%= robot.avatar %>" alt="<%= robot.name %>"><br />
   <a href="/robots/<%= robot.name %>/edit">Edit</a>
   <form action="/robots/<%= robot.name %>" method="POST">
     <input type="hidden" name="_method" value="DELETE">

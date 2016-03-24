@@ -5,20 +5,28 @@
 
 <div class="container">
   <input type="hidden" name="_method" value="PUT"><br />
+
   <strong>Name:</strong><br />
   <input type='text' name='robot[name]' value="<%= @robot.name %>"/><br/><br/>
+
   <strong>City:</strong><br />
   <input type='text' name='robot[city]' value="<%= @robot.city %>"/><br/><br/>
+
   <strong>State:</strong><br />
   <input type='text' name='robot[state]' value="<%= @robot.state %>"/><br/><br/>
+
   <strong>Avatar</strong> (any number)<br />
   <input type='text' name='robot[avatar]' value="<%= @robot.avatar %>"/><br/><br/>
+
   <strong>Birthdate:</strong><br />
   <input type='text' name='robot[birthdate]' value="<%= @robot.birthdate %>"/><br/><br/>
+
   <strong>Date Hired:</strong><br />
   <input type='text' name='robot[date_hired]' value="<%= @robot.date_hired %>"/><br/><br/>
+
   <strong>Department:</strong><br />
   <input type='text' name='robot[department]' value="<%= @robot.department %>"/><br/><br />
-  <input type='submit'>
+
+  <input type='submit' value="Edit Robot">
 </div>
 </form>
