@@ -25,7 +25,7 @@ module TestHelpers
     end
 
   def teardown
-    robot_world.delete_all
+    robot_world.destroy_all
     super
   end
 

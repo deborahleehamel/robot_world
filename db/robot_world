@@ -5,7 +5,7 @@ robots:
   state: Maine
   avatar: https://robohash.org/dignissimosinculpa.png?size=300x300&set=set1
   birthdate: '1960-05-06'
-  date hired: '2015-04-01'
+  date hired: '2015-04-09'
   department: Giggling Division
 - name: Braxton Juggles
   city: Loweview
@@ -462,13 +462,6 @@ robots:
   birthdate: 2015-08-10
   date hired: 2015-05-05
   department: LLC
-- name: Warren Tillman
-  city: Paulineport
-  state: New Hampshire
-  avatar: https://robohash.org/nobisquiadolor.png?size=300x300&set=set1
-  birthdate: 2015-08-06
-  date hired: 2015-11-18
-  department: and Sons
 - name: Nellie Sipes
   city: South Neiltown
   state: Montana
@@ -581,13 +574,6 @@ robots:
   birthdate: 2015-06-20
   date hired: 2015-12-18
   department: Inc
-- name: Ms. Arnaldo Nikolaus
-  city: Port Elyssaton
-  state: Alabama
-  avatar: https://robohash.org/illumeosdelectus.png?size=300x300&set=set1
-  birthdate: 2016-02-29
-  date hired: 2015-03-23
-  department: LLC
 - name: Demario Nitzsche DDS
   city: Busterfort
   state: Montana
@@ -700,13 +686,6 @@ robots:
   birthdate: ''
   date hired: ''
   department: ''
-- name: Sam Tinman
-  city: Detroit
-  state: MI
-  avatar: '747'
-  birthdate: 09/08/2000
-  date hired: 09/12/2010
-  department: Hiccup Engineering
 - name: Angela
   city: WheatRidge
   state: Colorado
@@ -714,10 +693,24 @@ robots:
   birthdate: 05/28/1982
   date hired: 05/26/2001
   department: Pep Talk Operations
-- name: Angela
-  city: WheatRidge
-  state: Colorado
-  avatar: '4442'
-  birthdate: 05/28/1982
-  date hired: 05/26/2001
-  department: Pep Talk Operations
+- name: George Carlin
+  city: ''
+  state: ''
+  avatar: '999'
+  birthdate: 09-09-2002
+  date hired: ''
+  department: ''
+- name: George Carlin
+  city: ''
+  state: ''
+  avatar: '999'
+  birthdate: 09-09-2002
+  date hired: ''
+  department: ''
+- name: George Carlin
+  city: ''
+  state: ''
+  avatar: '999'
+  birthdate: 09-09-2002
+  date hired: ''
+  department: ''
