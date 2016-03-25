@@ -693,24 +693,10 @@ robots:
   birthdate: 05/28/1982
   date hired: 05/26/2001
   department: Pep Talk Operations
-- name: George Carlin
-  city: ''
-  state: ''
-  avatar: '999'
-  birthdate: 09-09-2002
-  date hired: ''
-  department: ''
-- name: George Carlin
-  city: ''
-  state: ''
-  avatar: '999'
-  birthdate: 09-09-2002
-  date hired: ''
-  department: ''
-- name: George Carlin
-  city: ''
-  state: ''
-  avatar: '999'
-  birthdate: 09-09-2002
-  date hired: ''
-  department: ''
+- name: Harry Henderson
+  city: San Francisco
+  state: California
+  avatar: '7899'
+  birthdate: 07-09-2000
+  date hired: 05-09-2014
+  department: Monstering Promotion
