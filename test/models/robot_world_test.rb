@@ -17,8 +17,7 @@ class RobotWorldTest < Minitest::Test
     assert_equal  "Kindness Investigations 1", robot.department
   end
 
-  def test_it_finds_all_robots
-    skip
+  def test_it_can_find_all_robots
     create_robots(3)
 
     assert_equal 3, robot_world.all.count
@@ -29,8 +28,7 @@ class RobotWorldTest < Minitest::Test
     end
   end
 
-  def test_it_finds_a_specific_robot
-    skip
+  def test_it_can_find_a_specific_robot
     create_robots(3)
 
     robot = robot_world.all.last
@@ -43,8 +41,7 @@ class RobotWorldTest < Minitest::Test
     end
   end
 
-  def test_it_updates_robot
-    skip
+  def test_it_can_update_robot
     create_robots(2)
     updated_data = {
       name: "updated name",
@@ -57,24 +54,20 @@ class RobotWorldTest < Minitest::Test
 
     new_robot = robot_world.find(robot)
 
-    assert_equal updated_data[:name], new_robot.name
-    assert_equal updated_data[:city], new_robot.city
+    assert_equal "updated name", new_robot.name
+    assert_equal "updated city", new_robot.city
   end
 
   def test_it_deletes_a_robot
-    skip
     create_robots(3)
 
-  robot = robot_world.all.last.id
-
+    robot = robot_world.all.last.id
     initial_count = robot_world.all.count
 
     robot_world.destroy(robot)
-
     final_count = robot_world.all.count
 
-    assert_equal 1, (initial_count - final_count)
+    assert_equal 2, (initial_count - 1)
   end
-
 
 end
