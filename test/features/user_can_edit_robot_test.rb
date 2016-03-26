@@ -8,13 +8,13 @@ class UserCanEditRobotTest < Minitest::Test
 
     create_robots(1)
 
-    visit "/robots/#{name}/edit", current_path
+    visit "/robots/#{robot_world.all.last.id}/edit", current_path
 
     fill_in 'robot[city]', with: "Knoxville"
 
     click_button "Edit Robot"
 
-    assert_equal "/robots#{name}", current_path
+    assert_equal "/robots/#{id}", current_path
 
     assert page.has_content? "Knoxville"
   end

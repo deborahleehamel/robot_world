@@ -1,9 +1,12 @@
-<form action="/robots/<%= @robot.name %>" method="post">
+<p></p>
+<a href="/" class="btn-warning btn-sm">Back to Home</a> | <a href="/robots" class="btn-info btn-sm" >Robot Directory</a> | <a href="/robots/<%= @robot.id %>/edit" class="btn-success btn-lg">Edit this Robot</a>
+<p></p>
+<form action="/robots/<%= @robot.id %>" method="post">
 <div class="row well text-center">
   <h1>Edit this Robot</h1>
 </div>
 
-<div class="container">
+<div class="container form-group">
   <input type="hidden" name="_method" value="PUT"><br />
 
   <strong>Name:</strong><br />

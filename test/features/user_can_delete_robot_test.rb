@@ -5,25 +5,27 @@ class UserCanDeleteRobotTest < Minitest::Test
   include Capybara::DSL
 
   def test_robot_is_deleted
-    data = {
-      name: "Betty",
-      city: "Atlanta",
-      :state       => "Georgia",
-      :birthdate   => "06-20-12",
-      :date_hired  => "05-01-14",
-      :department  => "Artificial Intelligence"}
+    visit '/'
 
-      robot_world.create(data)
-      robot = robot_world.all.first
+    click_link_or_button("Make a New Robot")
 
+    assert_equal "/robots/new", current_path
+    fill_in 'robot[name]', with: "Betty Boop"
+    fill_in 'robot[avatar]', with: "765"
+    fill_in 'robot[birthdate]', with: "09-08-2001"
 
-    visit '/robots'
+    click_button("make_robot")
+
+    assert_equal "/robots", current_path
+
     within("#robots") do
-      assert page.has_content? ("some name")
+      assert page.has_content? ("Betty Boop")
     end
-    click_button("delete")
-    within("#robots") do
-      refute page.has_content? ("some name")
-    end
+
+    click_button("Delete")
+
+    assert_equal "/robots", current_path
+
+    refute page.has_content? ("Betty Boop")
   end
 end

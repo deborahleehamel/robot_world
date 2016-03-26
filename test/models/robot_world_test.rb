@@ -18,6 +18,7 @@ class RobotWorldTest < Minitest::Test
   end
 
   def test_it_finds_all_robots
+    skip
     create_robots(3)
 
     assert_equal 3, robot_world.all.count
@@ -29,13 +30,16 @@ class RobotWorldTest < Minitest::Test
   end
 
   def test_it_finds_a_specific_robot
+    skip
     create_robots(3)
 
-    names = robot_world.all.map { |robot| robot.name }
-    names.each_with_index do |name, index|
-      robot = robot_world.find(name)
-      assert_equal "Robot #{index + 1}", robot.name
-      assert_equal "Denver #{index + 1}", robot.city
+    robot = robot_world.all.last
+
+    ids = robot_world.all.map { |robot| robot.id }
+    ids.each do |id|
+      robot = robot_world.find(id)
+      assert_equal "Robot #{id}", robot.name
+      assert_equal "Denver #{id}", robot.city
     end
   end
 
@@ -43,11 +47,11 @@ class RobotWorldTest < Minitest::Test
     skip
     create_robots(2)
     updated_data = {
-      :nane => "updated name",
-      :city => "updated city"
+      name: "updated name",
+      city: "updated city"
     }
 
-    robot = robot_world.all.last.name
+    robot = robot_world.all.last.id
 
     robot_world.update(updated_data, robot)
 
@@ -58,13 +62,14 @@ class RobotWorldTest < Minitest::Test
   end
 
   def test_it_deletes_a_robot
+    skip
     create_robots(3)
 
-    robot = robot_world.all.last.name
+  robot = robot_world.all.last.id
 
     initial_count = robot_world.all.count
 
-    robot_world.delete(robot)
+    robot_world.destroy(robot)
 
     final_count = robot_world.all.count
 

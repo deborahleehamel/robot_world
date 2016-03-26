@@ -18,25 +18,26 @@ class RobotWorldApp < Sinatra::Base
    redirect '/robots'
  end
 
- get '/robots/:name' do |name|
-    @robot = robot_world.find(name)
+ get '/robots/:id' do |id|
+    @robot = robot_world.find(id.to_i)
     erb :show
   end
 
-  get '/robots/:name/edit' do |name|
-    @robot = robot_world.find(name)
+  get '/robots/:id/edit' do |id|
+    @robot = robot_world.find(id.to_i)
     erb :edit
   end
 
-  put '/robots/:name' do |name|
-    robot_world.update(name, params[:robot])
-    @robot = robot_world.find(params["robot"]["name"])
-    erb :show
-    # redirect "/robots/#{name}"
+  put '/robots/:id' do |id|
+    id = id.to_i
+    robot_world.update(params[:robot], id)
+    @robot = robot_world.find(id)
+    # erb :show
+    redirect "/robots/#{@robot.id}"
   end
 
-  delete '/robots/:name' do |name|
-    robot_world.destroy(name)
+  delete '/robots/:id' do |id|
+    robot_world.destroy(id.to_i)
     redirect '/robots'
   end
 
@@ -44,8 +45,13 @@ class RobotWorldApp < Sinatra::Base
     erb :error
   end
 
- def robot_world
-   database = YAML::Store.new('db/robot_world')
-   @robot_world ||= RobotWorld.new(database)
- end
+  def robot_world
+      if ENV["RACK_ENV"] == "test"
+        database = Sequel.sqlite("db/robot_world_test.sqlite")
+      else
+        database = Sequel.sqlite("db/robot_world_development.sqlite")
+      end
+      @robot_world ||= RobotWorld.new(database)
+    end
+
 end

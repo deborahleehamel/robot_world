@@ -7,58 +7,45 @@ class RobotWorld
     @database = database
   end
 
-  def create(robot)
-    database.transaction do
-      database['robots'] ||= []
-      database['robots'] << { "name" => robot[:name],
-                              "city" => robot[:city],
-                              "state" => robot[:state],
-                              "avatar" => robot[:avatar],
-                              "birthdate" => robot[:birthdate],
-                              "date hired" => robot[:date_hired],
-                              "department" => robot[:department] }
-    end
+  def dataset
+    database.from(:robots)
   end
 
-  def raw_robots
-    database.transaction do
-      database['robots'] || []
-    end
+  def create(robot)
+    dataset.insert(robot)
   end
+
+  # def raw_robots
+  #   database.transaction do
+  #     database['robots'] || []
+  #   end
+  # end
 
   def all
-    raw_robots.map { |data| Robot.new(data) }
+    dataset.all.to_a.map { |data| Robot.new(data) }
   end
 
-  def raw_robot(name)
-   raw_robots.find { |robot| robot["name"] == name }
+ #  def raw_robot(id)
+ #   raw_robots.find { |robot| robot["id"] == id }
+ # end
+
+ def find(id)
+   data = dataset.where(:id => id).to_a.first
+   Robot.new(data)
  end
 
- def find(name)
-   Robot.new(raw_robot(name))
- end
-
- def update(name, robot)
-    database.transaction do
-      target = database['robots'].find { |data| data["name"] == name }
-      target["name"] = robot[:name]
-      target["city"] = robot[:city]
-      target["state"] = robot[:state]
-      target["avatar"] = robot[:avatar]
-      target["birthdate"] = robot[:birthdate]
-      target["date hired"] = robot[:date_hired]
-      target["department"] = robot[:department]
-    end
+ def update(data, id)
+    dataset.where(:id => id).update(data)
   end
 
-  def destroy(name)
-    database.transaction do
-      database['robots'].delete_if { |robot| robot["name"] == name }
-    end
+  def destroy(id)
+    dataset.where(:id => id).delete
   end
+
   def destroy_all
     database.transaction do
       database['robots'] = []
+      database['total'] = 0
     end
   end
 

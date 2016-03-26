@@ -30,8 +30,8 @@ module TestHelpers
   end
 
   def robot_world
-    database = YAML::Store.new('db/robot-world_test')
+    database = Sequel.sqlite("db/robot_world_test.sqlite")
     @robot_world ||= RobotWorld.new(database)
-  end
+    end
 
   end

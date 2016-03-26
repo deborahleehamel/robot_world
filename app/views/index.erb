@@ -1,4 +1,6 @@
-<a href="/">Back to Home</a>
+<p></p>
+<a href="/" class="btn-warning btn-sm">Back to Home</a> | <a href="/robots" class="btn-info btn-lg" >Robot Directory</a> | <a href="/robots/new" class="btn-success btn-sm">Make a New Robot</a>
+<p></p>
 <div class="row well text-center">
   <h1>Robot Directory</h1>
 </div>
@@ -6,13 +8,13 @@
 <div id="robots" class="text-center padded centered">
 
 <% @robots.each do |robot| %>
-  <h3>(<%= robot.name %>) <a href="/robots/<%= robot.name %>"><%= robot.name %></a></h3>
-<img src="https://robohash.org/<%= robot.avatar %>" alt="<%= robot.name %>"><br />
-  <a href="/robots/<%= robot.name %>/edit">Edit</a>
-  <form action="/robots/<%= robot.name %>" method="POST">
-    <input type="hidden" name="_method" value="DELETE">
-    <input type="submit" value="delete"/>
-  </form>
+<div class="border-robot">
+  <h3><a class="robot-name" href="/robots/<%= robot.id %>"><%= robot.name %></a></h3>
+<a href="/robots/<%= robot.id %>"><img src="https://robohash.org/<%= robot.avatar %>" alt="<%= robot.name %>"></a><br />
+  <p></p>
+</div>
+<p></p>
+<div>
 <% end %>
-
+</div>
 </div>
