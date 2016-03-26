@@ -6,6 +6,7 @@ class UserCanCreateRobotTest < Minitest::Test
 
   def test_with_valid_attributes
     visit '/'
+    
     click_link 'Make a New Robot'
 
     assert_equal '/robots/new', current_path
