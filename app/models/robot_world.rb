@@ -43,10 +43,7 @@ class RobotWorld
   end
 
   def destroy_all
-    database.transaction do
-      database['robots'] = []
-      database['total'] = 0
-    end
+    dataset.delete
   end
 
 
