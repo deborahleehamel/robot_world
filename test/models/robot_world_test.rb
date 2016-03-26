@@ -31,13 +31,11 @@ class RobotWorldTest < Minitest::Test
   def test_it_can_find_a_specific_robot
     create_robots(3)
 
-    robot = robot_world.all.last
-
     ids = robot_world.all.map { |robot| robot.id }
-    ids.each do |id|
+    ids.each_with_index do |id, index|
       robot = robot_world.find(id)
-      assert_equal "Robot #{id}", robot.name
-      assert_equal "Denver #{id}", robot.city
+      assert_equal "Robot #{index + 1}", robot.name
+      assert_equal "Denver #{index + 1}", robot.city
     end
   end
 
