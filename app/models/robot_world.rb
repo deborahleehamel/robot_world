@@ -15,19 +15,9 @@ class RobotWorld
     dataset.insert(robot)
   end
 
-  # def raw_robots
-  #   database.transaction do
-  #     database['robots'] || []
-  #   end
-  # end
-
   def all
     dataset.all.to_a.map { |data| Robot.new(data) }
   end
-
- #  def raw_robot(id)
- #   raw_robots.find { |robot| robot["id"] == id }
- # end
 
  def find(id)
    data = dataset.where(:id => id).to_a.first
