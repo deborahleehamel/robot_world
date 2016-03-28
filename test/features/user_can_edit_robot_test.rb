@@ -19,5 +19,4 @@ class UserCanEditRobotTest < Minitest::Test
 
     assert page.has_content? "Knoxville"
   end
-
 end

@@ -67,5 +67,4 @@ class RobotWorldTest < Minitest::Test
 
     assert_equal 2, (initial_count - 1)
   end
-
 end

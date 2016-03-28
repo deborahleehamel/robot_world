@@ -24,5 +24,4 @@ class RobotTest < Minitest::Test
     assert_equal "06-08-2014", robot.date_hired
     assert_equal "Generosity Engineering", robot.department
   end
-
 end
